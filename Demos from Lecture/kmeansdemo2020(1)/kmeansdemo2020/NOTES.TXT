@@ -1,0 +1,39 @@
+% gkmeans notes:  graphical k means
+% Minimal example of means using only 2 dimensions for easy
+% visualisation and code understanding
+%
+% NOTE - This code was updated to make it easier to understand
+% in March 2016, then some additional checking added March 2020
+% to avoid display problems on Matlab version 2019.
+% Also improved clarity of calling both demos
+% 
+% 
+
+% Basic running of the code; from Matlab prompt,
+% Note that the data is held in two separate arrays,
+% so in a sense are already labelled. However, the
+% purpose of this is just to emphasise that there are
+% points drawn from two distinct distributions: later on,
+% we will lump them into one unlabelled array….
+load classA;
+load classB;
+
+% Combine into one array; could make the combination of these
+% random, so that classes are separated and not in any particular order
+C=[A;B];
+
+% Run, using one example of initialisation
+[class,m]=gkmeans(C,2,20,1);
+
+% A different initialisation
+[class,m]=gkmeans(C,2,20,2);
+
+% Another example of initialisation
+[class,m]=gkmeans(C,2,20,3);
+
+% The modified kmeans is demonstrated below
+% gmkmeans notes: "graphical" modified k-means
+load classA;
+load classB;
+C=[A;B];
+[class,mu,p]=gmkmeans(C,3,20,4);
